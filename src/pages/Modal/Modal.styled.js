@@ -14,7 +14,7 @@ export const Backdrop = styled.div`
 
 export const Dialog = styled.div`
   position: fixed;
-  top: 20%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 30;
@@ -23,4 +23,20 @@ export const Dialog = styled.div`
   width: 982px;
   padding: 40px;
   background-color: #fff;
+`;
+
+export const Ul = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 24px;
+`;
+
+export const Description = styled.p`
+  margin-bottom: 44px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
 `;

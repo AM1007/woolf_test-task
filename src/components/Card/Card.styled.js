@@ -14,10 +14,31 @@ export const Item = styled.div`
 export const Img = styled.img`
   border-radius: 10px;
   object-fit: cover;
-  object-position: -200px center;
+  /* object-position: -200px center; */
+  object-position: ${({ specialPosition }) =>
+    specialPosition || 'center center'};
   width: 290px;
   height: 310px;
   background: #f2f4f7;
+  transition: box-shadow 3s all;
+  transition: all 1.2s ease-in-out;
+
+  ${({ hoverEffect }) =>
+    hoverEffect &&
+    `
+    &:hover {
+      box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.3);
+      transform: scale(2,2);
+      width: 80vw;
+      
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+
+
+    }
+  `}
 `;
 
 export const CardInfoWrap = styled.div`
@@ -30,7 +51,7 @@ export const TitleContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 8px;
+  margin-bottom: 8px;
 `;
 
 export const CardTitle = styled.h2`
@@ -42,6 +63,7 @@ export const CardTitle = styled.h2`
 `;
 
 export const Price = styled.span`
+  margin-bottom: ${props => props.$marginBottom || '0px'};
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 24px;
@@ -52,7 +74,7 @@ export const Price = styled.span`
 `;
 
 export const SubtitleWrap = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: ${props => props.$marginBottom || '24px'};
   /* border: 1px solid red; */
   display: flex;
   gap: 4px;

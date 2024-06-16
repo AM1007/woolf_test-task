@@ -15,7 +15,7 @@ import {
 import AddToFavoritesBtn from 'components/Buttons/AddToFavoritesBtn/AddToFavoritesBtn';
 import Icon from '../Icon/Icon';
 import ShowBtn from 'components/Buttons/ShowBtn/ShowBtn';
-import noImage from '../../assets/noimage.png';
+import noImage from 'assets/noimage.png';
 
 const Card = ({ camper, showModal }) => {
   const {
@@ -49,7 +49,12 @@ const Card = ({ camper, showModal }) => {
 
   return (
     <Item>
-      <Img src={gallery ? gallery[0] : noImage} />
+      <Img
+        src={gallery ? gallery[0] : noImage}
+        alt={name}
+        hoverEffect={false}
+        specialPosition="-200px center"
+      />
       <CardInfoWrap>
         <TitleContainer>
           <CardTitle>{name}</CardTitle>

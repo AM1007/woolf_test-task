@@ -6,10 +6,13 @@
 }
 
 /* Убираем внутренние отступы */
-ul[class],
 ol[class] {
   padding: 0;
   margin: 0;
+}
+
+ul[class] {
+  padding: 0;
 }
 
 /* Убираем внешние отступы */
@@ -19,7 +22,7 @@ h2,
 h3,
 h4,
 p,
-ul[class],
+/* ul[class], */
 ol[class],
 li,
 figure,
