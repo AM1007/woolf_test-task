@@ -63,11 +63,11 @@ define the ad object according to the description below.
 
 ### Advert
 
-1. Create an advertisement in Mockapi with the following fields: \_id, name,
-   price, rating, location, adults, children, engine, transmission, form,
-   length, width, height, tank, consumption, description, details, gallery, and
-   reviews (refer to the screenshot below). You can populate the collection
-   using the [adverts.json](./assets/adverts.json) file.
+1. Create an advertisement in Mockapi with the following fields: `\_id`, `name`,
+   `price`, `rating`, `location`, `adults`, `children`, `engine`,
+   `transmission`, `form`, `length`, `width`, `height`, `tank`, `consumption`,
+   `description`, `details`, `gallery`, and `reviews`. You can populate the
+   collection using the [adverts.json](./assets/adverts.json) file.
 2. You have the freedom to select the image of the camper yourself.
 3. Ensure the database includes a minimum of 13 ads, each with distinct content
    (chosen at your discretion). Implement pagination, with each page displaying
