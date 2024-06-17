@@ -11,34 +11,52 @@ export const Item = styled.div`
   border: 1px solid rgba(16, 24, 40, 0.2);
 `;
 
+// export const Img = styled.img`
+//   border-radius: 10px;
+//   object-fit: cover;
+//   object-position: -200px center;
+
+//   width: 290px;
+//   height: 310px;
+//   background: #f2f4f7;
+//   transition: box-shadow 3s all;
+//   transition: all 1.2s ease-in-out;
+
+//   &:hover {
+//     box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.3);
+//     transform: scale(2, 2);
+//     width: 80vw;
+
+//     position: relative;
+//     top: 0;
+//     left: 0;
+//     transform: translate(0, 0);
+//   }
+// `;
+
 export const Img = styled.img`
   border-radius: 10px;
   object-fit: cover;
-  /* object-position: -200px center; */
-  object-position: ${({ specialPosition }) =>
-    specialPosition || 'center center'};
+  object-position: -200px center;
   width: 290px;
   height: 310px;
   background: #f2f4f7;
   transition: box-shadow 3s all;
   transition: all 1.2s ease-in-out;
 
-  ${({ hoverEffect }) =>
-    hoverEffect &&
-    `
-    &:hover {
-      box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.3);
-      transform: scale(2,2);
-      width: 80vw;
-      
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: translate(0, 0);
+  &.modal-img {
+    object-position: center center;
+  }
 
-
-    }
-  `}
+  &.modal-img:hover {
+    box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.3);
+    transform: scale(2, 2);
+    width: 80vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
 `;
 
 export const CardInfoWrap = styled.div`
@@ -108,7 +126,6 @@ export const CharsWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  /* border: 1px solid green; */
   width: 100%;
 `;
 

@@ -1,85 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getData } from 'API/api';
 import Card from 'components/Card/Card';
 import { List, ListItem } from './CardList.styled';
-import Modal from 'pages/Modal/Modal';
 
-export default class CardList extends Component {
-  state = {
-    data: [],
-    selectedCamper: null,
-  };
+const CardList = ({ showModal }) => {
+  const [data, setData] = useState([]);
 
-  async componentDidMount() {
-    try {
-      const response = await getData();
-      this.setState({ data: response });
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      alert('Error data fetching!');
-    }
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getData();
+        setData(response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        alert('Error data fetching!');
+      }
+    };
 
-  handleShowModal = camper => {
-    this.setState({ selectedCamper: camper });
-    // Показать модальное окно
-  };
+    fetchData();
+  }, []);
 
-  handleHideModal = () => {
-    this.setState({ selectedCamper: null });
-    // Скрыть модальное окно
-  };
+  return (
+    <List>
+      {data.map(camper => (
+        <ListItem key={camper._id}>
+          <Card camper={camper} showModal={() => showModal(camper)} />
+        </ListItem>
+      ))}
+    </List>
+  );
+};
 
-  render() {
-    const { data, selectedCamper } = this.state;
-
-    return (
-      <>
-        <List>
-          {data.map(camper => (
-            <ListItem key={camper._id}>
-              <Card
-                camper={camper}
-                showModal={() => this.handleShowModal(camper)}
-              />
-            </ListItem>
-          ))}
-        </List>
-        {selectedCamper && (
-          <Modal camper={selectedCamper} hideModal={this.handleHideModal} />
-        )}
-      </>
-    );
-  }
-}
-
-// export default class CardList extends Component {
-//   state = {
-//     data: [],
-//   };
-
-//   async componentDidMount() {
-//     try {
-//       const response = await getData();
-//       this.setState({ data: response });
-//     } catch (error) {
-//       console.error('Error fetching data:', error);
-//       alert('Error data fetching!');
-//     }
-//   }
-
-//   render() {
-//     const { data } = this.state;
-//     const { showModal } = this.props;
-
-//     return (
-//       <List>
-//         {data.map(camper => (
-//           <ListItem key={camper._id}>
-//             <Card camper={camper} showModal={showModal} />
-//           </ListItem>
-//         ))}
-//       </List>
-//     );
-//   }
-// }
+export default CardList;

@@ -49,12 +49,7 @@ const Card = ({ camper, showModal }) => {
 
   return (
     <Item>
-      <Img
-        src={gallery ? gallery[0] : noImage}
-        alt={name}
-        hoverEffect={false}
-        specialPosition="-200px center"
-      />
+      <Img src={gallery ? gallery[0] : noImage} alt={name} />
       <CardInfoWrap>
         <TitleContainer>
           <CardTitle>{name}</CardTitle>
@@ -117,7 +112,7 @@ const Card = ({ camper, showModal }) => {
           )}
           <Char>
             <Icon
-              name="bed"
+              name="beds"
               width="20"
               height="20"
               fill="transparent"
@@ -128,7 +123,7 @@ const Card = ({ camper, showModal }) => {
           {details.airConditioner > 0 && (
             <Char>
               <Icon
-                name="ac"
+                name="airConditioner"
                 width="20"
                 height="20"
                 fill="#101828"
