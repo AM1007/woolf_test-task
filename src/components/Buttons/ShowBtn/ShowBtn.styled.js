@@ -11,6 +11,7 @@ export const Button = styled.button`
   background-color: #e44848;
   border-radius: 200px;
   border: none;
+  outline: none;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 

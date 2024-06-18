@@ -12,10 +12,11 @@ export const Details = styled.div`
   width: 430px;
 `;
 
-export const Form = styled.div`
-  border: 1px solid blue;
+export const FeaturesForm = styled.div`
+  border: 1px solid rgba(16, 24, 40, 0.2);
   width: 448px;
   padding: 24px;
+  border-radius: 10px;
 `;
 
 export const FeaturesUl = styled.ul`

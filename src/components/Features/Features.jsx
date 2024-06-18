@@ -6,10 +6,11 @@ import {
   DetailsUl,
   FeaturesUl,
   FeaturesWrap,
-  Form,
+  FeaturesForm,
   TitleDetails,
 } from './Features.styled';
 import Icon from 'components/Icon/Icon';
+import ModalForm from 'components/ModalForm/ModalForm';
 
 const Features = ({ camper }) => {
   const { details, form, length, width, height, tank, consumption } = camper;
@@ -63,7 +64,9 @@ const Features = ({ camper }) => {
           </DetailsUl>
         </FeaturesWrap>
       </Details>
-      <Form></Form>
+      <FeaturesForm>
+        <ModalForm />
+      </FeaturesForm>
     </Container>
   );
 };

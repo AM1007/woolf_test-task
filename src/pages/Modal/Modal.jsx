@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CloseBtn from 'components/Buttons/CloseBtn/CloseBtn';
 import {
   Backdrop,
@@ -26,6 +26,16 @@ const Modal = ({ camper, hideModal }) => {
     camper;
 
   const [activeTab, setActiveTab] = useState('features');
+
+  useEffect(() => {
+    // Добавить класс no-scroll к body при монтировании компонента
+    document.body.classList.add('no-scroll');
+
+    // Удалить класс no-scroll из body при размонтировании компонента
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, []);
 
   const renderContent = () => {
     switch (activeTab) {

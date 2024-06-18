@@ -23,6 +23,7 @@ export const Dialog = styled.div`
   border-radius: 20px;
   width: 982px;
   padding: 40px;
+  overscroll-behavior: contain;
   background-color: #fff;
 `;
 
