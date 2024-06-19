@@ -1,33 +1,55 @@
+import React, { useRef, useEffect } from 'react';
 import {
   FeaturesBtn,
-  FeaturesForm,
+  FeaturesSendForm,
   FormInput,
   FormPhrase,
   FormTextarea,
   FromTitle,
 } from './ModalForm.styled';
 
-const handlesubmit = e => {
+const handleSubmit = e => {
   e.preventDefault();
+  // Дополнительная логика для обработки данных формы
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+  console.log(data);
 };
 
-const ModalForm = () => {
+const ModalForm = ({ formRef }) => {
+  const sendFormRef = useRef(null);
+  // Зависимость высоты формы от высоты контейнера
+  useEffect(() => {
+    if (formRef.current && sendFormRef.current) {
+      sendFormRef.current.style.height = '85%';
+    }
+  }, [formRef]);
+
   return (
     <>
       <FromTitle>Book your campervan now</FromTitle>
       <FormPhrase>Stay connected! We are always ready to help you.</FormPhrase>
-      <FeaturesForm>
-        <label>
-          <FormInput type="text" name="username" placeholder="Name" autoFocus />
-        </label>
+      <FeaturesSendForm ref={sendFormRef} onSubmit={handleSubmit}>
+        <FormInput
+          type="text"
+          name="username"
+          placeholder="Name"
+          autoFocus
+          aria-label="UserMail"
+        />
 
-        <label>
-          <FormInput type="text" name="topic" placeholder="Email" />
-        </label>
+        <FormInput
+          type="text"
+          name="topic"
+          placeholder="Email"
+          aria-label="Email"
+        />
 
-        <label>
-          <FormInput type="date" placeholder="Booking date" />
-        </label>
+        <FormInput
+          type="date"
+          placeholder="Booking date"
+          aria-label="Calendar"
+        />
 
         <FormTextarea
           name="description"
@@ -35,10 +57,8 @@ const ModalForm = () => {
           aria-label="description"
         ></FormTextarea>
 
-        <FeaturesBtn type="submit" onSubmit={handlesubmit}>
-          Send
-        </FeaturesBtn>
-      </FeaturesForm>
+        <FeaturesBtn type="submit">Send</FeaturesBtn>
+      </FeaturesSendForm>
     </>
   );
 };

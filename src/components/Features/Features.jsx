@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import { Char } from 'components/Card/Card.styled';
 import {
   Container,
@@ -14,6 +15,9 @@ import ModalForm from 'components/ModalForm/ModalForm';
 
 const Features = ({ camper }) => {
   const { details, form, length, width, height, tank, consumption } = camper;
+  //реф (ref) для получения доступа к DOM-элементу.
+  const formRef = useRef(null);
+
   return (
     <Container>
       <Details>
@@ -31,6 +35,7 @@ const Features = ({ camper }) => {
               );
             })}
           </FeaturesUl>
+
           <TitleDetails>Vehicle details</TitleDetails>
           <DetailsUl>
             <DetailLi>
@@ -64,8 +69,8 @@ const Features = ({ camper }) => {
           </DetailsUl>
         </FeaturesWrap>
       </Details>
-      <FeaturesForm>
-        <ModalForm />
+      <FeaturesForm ref={formRef}>
+        <ModalForm formRef={formRef} />
       </FeaturesForm>
     </Container>
   );

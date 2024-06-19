@@ -18,11 +18,12 @@ export const FormPhrase = styled.p`
   margin-bottom: 24px;
 `;
 
-export const FeaturesForm = styled.form`
-  border: 1px solid red;
+export const FeaturesSendForm = styled.form`
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   gap: 14px;
+  /* height: 90%; */
 `;
 
 export const FormInput = styled.input`
@@ -49,6 +50,7 @@ export const FormInput = styled.input`
 
 export const FormTextarea = styled.input`
   width: 100%;
+  min-height: 114px;
   border-radius: 10px;
   padding: 18px;
   flex-grow: 1;
@@ -63,7 +65,7 @@ export const FormTextarea = styled.input`
 
   &::placeholder {
     position: absolute;
-    top: 18px;
+    top: 15px;
     left: 18px;
     transform: translateY(5px);
     font-family: 'Inter', sans-serif;
