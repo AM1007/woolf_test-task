@@ -10,10 +10,15 @@ import {
 
 const handleSubmit = e => {
   e.preventDefault();
+  console.log('event:', e);
   // Дополнительная логика для обработки данных формы
   const formData = new FormData(e.target);
   const data = Object.fromEntries(formData.entries());
   console.log(data);
+};
+
+const handleChange = e => {
+  console.log(e.target.value);
 };
 
 const ModalForm = ({ formRef }) => {
@@ -30,33 +35,38 @@ const ModalForm = ({ formRef }) => {
       <FromTitle>Book your campervan now</FromTitle>
       <FormPhrase>Stay connected! We are always ready to help you.</FormPhrase>
       <FeaturesSendForm ref={sendFormRef} onSubmit={handleSubmit}>
-        <FormInput
-          type="text"
-          name="username"
-          placeholder="Name"
-          autoFocus
-          aria-label="UserMail"
-        />
-
-        <FormInput
-          type="text"
-          name="topic"
-          placeholder="Email"
-          aria-label="Email"
-        />
-
-        <FormInput
-          type="date"
-          placeholder="Booking date"
-          aria-label="Calendar"
-        />
-
-        <FormTextarea
-          name="description"
-          placeholder="Comment"
-          aria-label="description"
-        ></FormTextarea>
-
+        <label>
+          <FormInput
+            type="text"
+            name="username"
+            placeholder="Name"
+            autoFocus
+            aria-label="UserMail"
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <FormInput
+            type="email"
+            name="topic"
+            placeholder="Email"
+            aria-label="Email"
+          />
+        </label>
+        <label>
+          <FormInput
+            type="date"
+            placeholder="Booking date"
+            aria-label="Calendar"
+          />
+        </label>
+        <label>
+          <FormTextarea
+            name="description"
+            placeholder="Comment"
+            aria-label="description"
+          ></FormTextarea>
+        </label>
         <FeaturesBtn type="submit">Send</FeaturesBtn>
       </FeaturesSendForm>
     </>

@@ -8,7 +8,7 @@ const Icon = props => {
       height={props.height}
       fill={props.fill}
       stroke={props.stroke}
-      background-color={props.backgroundColor}
+      style={props.style}
     >
       <use href={Icons + '#icon-' + props.name} />
     </svg>
