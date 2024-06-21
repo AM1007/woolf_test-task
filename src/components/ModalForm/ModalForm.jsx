@@ -60,13 +60,13 @@ const ModalForm = ({ formRef }) => {
             aria-label="Calendar"
           />
         </label>
-        <label>
-          <FormTextarea
-            name="description"
-            placeholder="Comment"
-            aria-label="description"
-          ></FormTextarea>
-        </label>
+
+        <FormTextarea
+          name="description"
+          placeholder="Comment"
+          aria-label="description"
+        ></FormTextarea>
+
         <FeaturesBtn type="submit">Send</FeaturesBtn>
       </FeaturesSendForm>
     </>

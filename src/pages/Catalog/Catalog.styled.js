@@ -9,9 +9,9 @@ export const Section = styled.section`
 
 export const FilterContainer = styled.div`
   width: 360px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 export const CardContainer = styled.div`
-  border: 1px solid green;
+  /* border: 1px solid green; */
 `;

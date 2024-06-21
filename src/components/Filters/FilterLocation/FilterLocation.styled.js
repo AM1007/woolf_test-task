@@ -8,7 +8,7 @@ export const LocationLabel = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
-
+  margin-bottom: 32px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 16px;
